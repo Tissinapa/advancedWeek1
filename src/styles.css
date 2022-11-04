@@ -31,7 +31,12 @@ body {
     display: flex;
     flex-direction: row-reverse;
   }
-  .wiki-text, .image-container{
+  .wiki-text{
+    min-width: 50%;
+    max-width: 50%;
+  }
+  
+  .img-container{
     min-width: 50%;
     max-width: 50%;
 

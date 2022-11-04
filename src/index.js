@@ -32,13 +32,15 @@ async function getDog() {
 
   //const url = "https://dog.ceo/api/breed/saluki/images/random"
   //console.log(dogsUrls[0].name , dogsUrls[0].url)
-  let requests = await Promise.all((dogsUrls.map((url)=> fetch(url)
+  try{
+    let requests = await Promise.all((dogsUrls.map((url)=> fetch(url)
     .then((res)=> res.json()))))
-    console.log(requests)
-    for(let i=0; i<= requests.length; i++){
-      initializeCode(requests[i].message,dognames[i])
-    }
-  
+      for(let i=0; i<= requests.length; i++){
+        initializeCode(requests[i], dognames[i])
+      }
+  } catch(error){
+    error;
+  }
   //Promise.all(requests)
   //  .then(responses => responses.forEach(response => initializeCode(response)));
     //console.log(response)
@@ -77,7 +79,7 @@ function initializeCode(jsonDog,names){
 
   wikiText.innerText=names
   
-  wikiImage.src = jsonDog
+  wikiImage.src = jsonDog.message
 
   
   wikiItem.appendChild(wikiHeader);

@@ -1,4 +1,4 @@
-import "./styles.css";
+
 const contentBody = document.getElementById("body");
 if (document.readyState !== "loading") {
   getDog();
@@ -77,8 +77,10 @@ function initializeCode(jsonDog,names){
   const wikiImage = document.createElement("img")
   wikiImage.className = "wiki-img"
 
-  wikiText.innerText=names
+  wikiHeader.innerText=names
   
+  wikiText.innerText="Something something testing testing"
+
   wikiImage.src = jsonDog.message
 
   
@@ -91,6 +93,7 @@ function initializeCode(jsonDog,names){
   wikiContent.appendChild(wikiText)
   wikiContent.appendChild(imageDiv)
   imageDiv.appendChild(wikiImage)
+
 
 
   //wikiContainer.appendChild(wiki)
